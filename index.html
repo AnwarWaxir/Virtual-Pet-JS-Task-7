@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,5 +7,15 @@
 </head>
 <body>
     <h1>Virtual Pet</h1>
+
+    <script>
+        var pet = {
+            name: prompt('Give your pet a name (as a string)'),
+            type: prompt('What kind of pet is it? (e.g., Cat, Dog, Dragon)'),
+            age: getNumberInput('How old is your pet? (as a number)'),
+            happiness: getNumberInput('How happy is your pet? (as a number between 0 - 100)'),
+            hunger: getNumberInput('How hungry is your pet? (as a number between 0 - 100)'),
+        }
+    </script>
 </body>
 </html>
