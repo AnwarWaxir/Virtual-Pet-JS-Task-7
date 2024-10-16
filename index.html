@@ -19,13 +19,46 @@
             } while (isNaN(value) || value > max || value < min)
             return value;
         }
-        
+
         var pet = {
             name: prompt('Give your pet a name (as a string)'),
             type: prompt('What kind of pet is it? (e.g., Cat, Dog, Dragon)'),
             age: getNumberInput('How old is your pet? (as a number)'),
             happiness: getNumberInput('How happy is your pet? (as a number between 0 - 100)'),
             hunger: getNumberInput('How hungry is your pet? (as a number between 0 - 100)'),
+
+            feed: function() {
+                this.hunger -= 20;
+                if (this.hunger > 0){
+                    this.hunger = 0;
+                }
+                alert(`${this.name} has been feed, Hunger level is now ${this.hunger}`)
+            },
+
+            play: function() {
+                this.happiness += 20;
+                if (this.happiness > 100) {
+                    this.happiness = 100;
+                }
+                alert(`${this.name} had a great time playing! Happiness level is now ${this.happiness}`)
+            },
+
+            agePet: function() {
+                this.age += 1;
+                this.happiness -= 5;
+                if (this.happiness < 0) {
+                    this.happiness = 0;
+                }
+                this.hunger += 10;
+                if (this.hunger > 100) {
+                    this.hunger = 100;
+                }
+                alert(`${this.name} is now ${this.age} years old. Happiness level is ${this.happiness} and Hunger level is ${this.hunger}`)
+            },
+
+            status: function() {
+                alert(`Your ${this.name} is a ${this.type}. It is now ${this.age} years old, happiness level is ${this.happiness} and hunger level is ${this.hunger}`)
+            }
         }
     </script>
 </body>
