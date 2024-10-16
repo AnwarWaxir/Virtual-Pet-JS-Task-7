@@ -9,6 +9,17 @@
     <h1>Virtual Pet</h1>
 
     <script>
+        function getNumberInput(message, max = 100, min = 0) {
+            var value;
+            do{
+                value = prompt(message)
+                if (isNaN(value) || value > max || value < min) {
+                    alert(`Please enter a valid number between ${min} and ${max}`)
+                }
+            } while (isNaN(value) || value > max || value < min)
+            return value;
+        }
+        
         var pet = {
             name: prompt('Give your pet a name (as a string)'),
             type: prompt('What kind of pet is it? (e.g., Cat, Dog, Dragon)'),
