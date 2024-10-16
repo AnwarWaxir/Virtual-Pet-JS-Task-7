@@ -12,7 +12,7 @@
         function getNumberInput(message, max = 100, min = 0) {
             var value;
             do{
-                value = prompt(message)
+                value = +prompt(message)
                 if (isNaN(value) || value > max || value < min) {
                     alert(`Please enter a valid number between ${min} and ${max}`)
                 }
@@ -29,10 +29,10 @@
 
             feed: function() {
                 this.hunger -= 20;
-                if (this.hunger > 0){
+                if (this.hunger < 0){
                     this.hunger = 0;
                 }
-                alert(`${this.name} has been feed, Hunger level is now ${this.hunger}`)
+                alert(`${this.name} has been feed, Hunger level is now ${this.hunger}.`)
             },
 
             play: function() {
@@ -40,7 +40,7 @@
                 if (this.happiness > 100) {
                     this.happiness = 100;
                 }
-                alert(`${this.name} had a great time playing! Happiness level is now ${this.happiness}`)
+                alert(`${this.name} had a great time playing! Happiness level is now ${this.happiness}.`)
             },
 
             agePet: function() {
@@ -53,13 +53,44 @@
                 if (this.hunger > 100) {
                     this.hunger = 100;
                 }
-                alert(`${this.name} is now ${this.age} years old. Happiness level is ${this.happiness} and Hunger level is ${this.hunger}`)
+                alert(`${this.name} is now ${this.age} years old. Happiness level is ${this.happiness} and Hunger level is ${this.hunger}.`)
             },
 
             status: function() {
-                alert(`Your ${this.name} is a ${this.type}. It is now ${this.age} years old, happiness level is ${this.happiness} and hunger level is ${this.hunger}`)
+                alert(`Your ${this.name} is a ${this.type}. It is now ${this.age} years old, happiness level is ${this.happiness} and hunger level is ${this.hunger}.`)
             }
         }
+
+        function action () {
+            let petFeeding = +prompt(`Please select an option:\n1. Feed ${pet.name}\n2. Play with ${pet.name}\n3. Age ${pet.name}\n4. Status of the ${pet.name}\n5. Exit`)
+
+            switch(petFeeding) {
+                case 1:
+                    pet.feed();
+                    break;
+                
+                case 2:
+                    pet.play();
+                    break;
+
+                case 3:
+                    pet.agePet();
+                    break;
+
+                case 4:
+                    pet.status();
+                    break;
+
+                case 5:
+                    alert("Good Bye!")
+                    return;
+
+                default:
+                    alert("Invalid choice. Please enter a number between 1 and 5.")
+            }
+            action();
+        }
+        action();
     </script>
 </body>
 </html>
